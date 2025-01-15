@@ -45,7 +45,6 @@ def monitor_gpu_performance():
 def stop_monitoring_after_delay(delay):
     """
     Stops GPU monitoring after a given delay.
-    This is useful for testing or limiting the monitoring duration.
     """
     time.sleep(delay)
     stop_monitoring.set()
