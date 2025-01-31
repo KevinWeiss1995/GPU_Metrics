@@ -3,7 +3,6 @@ import os
 import time
 import threading
 
-# Global stop event
 stop_monitoring = threading.Event()
 
 def monitor_gpu_performance():
@@ -14,11 +13,10 @@ def monitor_gpu_performance():
     - GPU power usage and other metrics to `./GPU_Metrics/plots/gpu_power.log`
     - GPU utilization and memory metrics to `./GPU_Metrics/plots/gpu_usage.log`
     """
-    # Define the output directory relative to the current script
+    
     output_dir = os.path.join(os.getcwd(), "GPU_Metrics", "plots")
-    os.makedirs(output_dir, exist_ok=True)  # Ensure the directory exists
+    os.makedirs(output_dir, exist_ok=True)  
 
-    # File paths for logs
     output_files = [os.path.join(output_dir, "gpu_power.log"), os.path.join(output_dir, "gpu_usage.log")]
 
     commands = [
@@ -35,7 +33,7 @@ def monitor_gpu_performance():
     try:
         print("Monitoring GPU performance... Press Ctrl+C to stop.")
         while not stop_monitoring.is_set():
-            time.sleep(1)  # Keep the script running to monitor performance
+            time.sleep(1)  
     finally:
         for proc, output in processes:
             proc.terminate()
