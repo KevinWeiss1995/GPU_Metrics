@@ -46,6 +46,5 @@ plt.gca().text(0.98, 0.98, duration_label, transform=plt.gca().transAxes,
 
 plt.xticks(rotation=45)
 
-# Show the plot
 plt.tight_layout()
 plt.show()
